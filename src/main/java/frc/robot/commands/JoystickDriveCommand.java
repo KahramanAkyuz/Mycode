@@ -37,7 +37,8 @@ public class JoystickDriveCommand extends CommandBase {
   @Override
   public void execute() {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
-    SmartDashboard.putNumber("Total Distance", m_drive.gettotalDistance());
+    System.out.println("Total Distance" + m_drive.gettotalDistance());
+    SmartDashboard.getNumber("Total Distance", m_drive.gettotalDistance());
   }
 
   // Called once the command ends or is interrupted.
