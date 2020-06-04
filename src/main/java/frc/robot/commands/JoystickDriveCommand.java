@@ -38,6 +38,7 @@ public class JoystickDriveCommand extends CommandBase {
   public void execute() {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
     System.out.println("Total Distance" + m_drive.gettotalDistance());
+    System.out.println("Wheel Speeds" + m_drive.getWheelSpeeds());
     SmartDashboard.getNumber("Total Distance", m_drive.gettotalDistance());
   }
 
