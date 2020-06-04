@@ -23,7 +23,7 @@ public class DriveSubsytem extends SubsystemBase {
   
   private final CANSparkMax LeftMotor = new CANSparkMax(DriveConstants.LeftMotor, MotorType.kBrushless);
   private final CANSparkMax RightMotor = new CANSparkMax(DriveConstants.RightMotor, MotorType.kBrushless);
-  private final CANEncoder Encoder_A = new CANEncoder(LeftMotor);
+  private final CANEncoder Encoder_A = LeftMotor.getEncoder(EncoderType.kQuadrature, 4096);
   private final CANEncoder Encoder_B = RightMotor.getEncoder(EncoderType.kQuadrature, 4096);
   private final DifferentialDrive m_drive = new DifferentialDrive(LeftMotor, RightMotor);
   

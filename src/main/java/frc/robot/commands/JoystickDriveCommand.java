@@ -6,10 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
-
 import java.util.function.DoubleSupplier;
-
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveSubsytem;
 
@@ -20,6 +17,7 @@ public class JoystickDriveCommand extends CommandBase {
   private final DriveSubsytem m_drive;
   private final DoubleSupplier m_forward;
   private final DoubleSupplier m_rotation;
+
   public JoystickDriveCommand(DriveSubsytem drive, DoubleSupplier forward, DoubleSupplier rotation) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_drive = drive;
@@ -39,7 +37,6 @@ public class JoystickDriveCommand extends CommandBase {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
     System.out.println("Total Distance" + m_drive.gettotalDistance());
     System.out.println("Wheel Speeds" + m_drive.getWheelSpeeds());
-    SmartDashboard.getNumber("Total Distance", m_drive.gettotalDistance());
   }
 
   // Called once the command ends or is interrupted.
