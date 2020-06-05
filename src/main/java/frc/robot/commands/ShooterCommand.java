@@ -32,6 +32,7 @@ public class ShooterCommand extends CommandBase {
   @Override
   public void execute() {
     m_shooter.runShooter(m_speed);
+    System.out.println("Shooter RPM" + m_shooter.ShooterRPM());
   }
 
   // Called once the command ends or is interrupted.

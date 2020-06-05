@@ -7,7 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.EncoderType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ShooterConstants;
@@ -17,6 +19,7 @@ public class ShooterSubsytem extends SubsystemBase {
    * Creates a new ShooterSubsytem.
    */
   private final CANSparkMax shooterMotor = new CANSparkMax(ShooterConstants.shootermotor,  MotorType.kBrushless);
+  private final CANEncoder shooterEncoder = shooterMotor.getEncoder(EncoderType.kQuadrature, 4096);
   public ShooterSubsytem() {
 
   }
@@ -24,6 +27,10 @@ public class ShooterSubsytem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+  }
+  public double ShooterRPM()
+  {
+    return (shooterEncoder.getVelocity() * 60 / 4096);
   }
   public void runShooter(double speed)
   {

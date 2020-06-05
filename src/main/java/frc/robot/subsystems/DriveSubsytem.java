@@ -36,7 +36,7 @@ public class DriveSubsytem extends SubsystemBase {
     m_drive.arcadeDrive(fwd , rot , true);
   }
   public double gettotalDistance(){
-    return Encoder_B.getPosition() + Encoder_A.getPosition() / 2;
+    return (Encoder_B.getPosition() + Encoder_A.getPosition()) / 2;
   }
   public DifferentialDriveWheelSpeeds getWheelSpeeds(){
     return new DifferentialDriveWheelSpeeds(Encoder_A.getVelocity(), Encoder_B.getVelocity());

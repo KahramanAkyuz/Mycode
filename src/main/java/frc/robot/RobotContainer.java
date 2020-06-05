@@ -11,12 +11,10 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.DriveSubsytem;
-import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.HopperSubsytem;
 import frc.robot.subsystems.ShooterPiston;
 import frc.robot.subsystems.ShooterSubsytem;
 import frc.robot.subsystems.intakeSubsytem;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.commands.*;
@@ -32,10 +30,8 @@ public class RobotContainer {
   private final intakeSubsytem m_intake = new intakeSubsytem();
   private final HopperSubsytem m_hopper = new HopperSubsytem();
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
   private final DriveSubsytem m_drive = new DriveSubsytem();
   public Joystick m_driverController = new Joystick(0);
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
   private final ShooterSubsytem m_shooter = new ShooterSubsytem();
   private final ShooterPiston m_shooteropen = new ShooterPiston();
   /**
@@ -76,8 +72,4 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return m_autoCommand;
-  }
 }
