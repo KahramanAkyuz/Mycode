@@ -12,38 +12,30 @@ import edu.wpi.first.wpilibj2.command.PIDCommand;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.subsystems.DriveSubsytem;
 
+// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
+// information, see:
+// https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class FieldOriantedTurnPID extends PIDCommand {
   /**
    * Creates a new FieldOriantedTurnPID.
    */
-  public FieldOriantedTurnPID(DriveSubsytem m_drive, double targetDistance) {
+  public FieldOriantedTurnPID(DriveSubsytem m_drive, double targetangle) {
     super(
-      new PIDController(DriveConstants.driveP, DriveConstants.driveI, DriveConstants.driveD),
-      () -> m_drive.gettotalDistance(),
-      targetDistance,
-      output -> {
-       m_drive.arcadeDrive(output, 0);
-
-      });
-      addRequirements(m_drive);
-      getController().setTolerance(DriveConstants.distenceaccuary);
-    // Use addRequirements() here to declare subsystem dependencies. 
-  }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-  }
-
-  // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    
-  }
-
-  // Called once the command ends or is interrupted.
-  @Override
-  public void end(boolean interrupted) {
+        // The controller that the command will use
+        new PIDController(DriveConstants.turnP, DriveConstants.trunI, DriveConstants.trunD),
+        // This should return the measurement
+        () -> m_drive.getHeading(),
+        // This should return the setpoint (can also be a constant)
+        targetangle,
+        // This uses the output
+        output -> {
+          m_drive.arcadeDrive(0, output);
+          // Use the output here
+        });
+    // Use addRequirements() here to declare subsystem dependencies.
+   addRequirements(m_drive);
+   getController().setTolerance(DriveConstants.accuary);
+    // Configure additional PID options by calling `getController` here.
   }
 
   // Returns true when the command should end.
