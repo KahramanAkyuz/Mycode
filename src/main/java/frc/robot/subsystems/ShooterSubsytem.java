@@ -18,6 +18,7 @@ public class ShooterSubsytem extends SubsystemBase {
   /**
    * Creates a new ShooterSubsytem.
    */
+  public boolean isAtSetpoint = false;
   private final CANSparkMax shooterMotor = new CANSparkMax(ShooterConstants.shootermotor,  MotorType.kBrushless);
   private final CANEncoder shooterEncoder = shooterMotor.getEncoder(EncoderType.kQuadrature, 4096);
   public ShooterSubsytem() {
@@ -28,9 +29,9 @@ public class ShooterSubsytem extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-  public double ShooterRPM()
+  public double TargetRPM()
   {
-    return (shooterEncoder.getVelocity() * 60 / 4096);
+    return (shooterEncoder.getVelocity());
   }
   public void runShooter(double speed)
   {

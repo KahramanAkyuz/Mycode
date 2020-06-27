@@ -78,10 +78,10 @@ public class RobotContainer {
     new JoystickButton(m_driverController, 9).whileHeld(new intakeCommand(m_intake, 0.8));
     new JoystickButton(m_driverController, 10).whileHeld(new intakeOpen(m_intake, 0.5));
     new JoystickButton(m_driverController, 11).whileHeld(new intakeClose(m_intake, -0.5));
-    new POVButton(m_driverController, 0).whileHeld(new FieldDriantedTurnPID(m_drive, 0));
-    new POVButton(m_driverController, 90).whileHeld(new FieldDriantedTurnPID(m_drive, 90)) ;
-    new POVButton(m_driverController, 270).whileHeld(new FieldDriantedTurnPID(m_drive, 270)) ;
-    new POVButton(m_driverController, 360).whileHeld(new FieldDriantedTurnPID(m_drive, 360));
+    new POVButton(m_driverController, 0).whileHeld(new FieldOriantedTurnPID(m_drive, 0));
+    new POVButton(m_driverController, 90).whileHeld(new FieldOriantedTurnPID(m_drive, 90)) ;
+    new POVButton(m_driverController, 270).whileHeld(new FieldOriantedTurnPID(m_drive, 270)) ;
+    new POVButton(m_driverController, 360).whileHeld(new FieldOriantedTurnPID(m_drive, 360));
   }
   public Command trajectoryCommand(){
   var autoVoltageConstraint =
@@ -151,6 +151,7 @@ return ramseteCommand.andThen(() -> m_drive.tankDriveVolts(0, 0));
       return new FirstBlock(m_drive, m_hopper, m_intake, m_shooterPiston, m_shooter, s_trajectory);
       case 2:
       return new SecondBlock(s_trajectory, m_drive, m_hopper, m_intake, m_shooter, m_shooterPiston);
+
       default:
       return null;
     }

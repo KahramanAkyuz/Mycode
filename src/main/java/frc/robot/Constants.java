@@ -60,6 +60,12 @@ public final class Constants {
         public static final int shooterselenoid_B_Pin1 = 2;
         public static final int shooterselenoid_B_Pin2 = 3;
         public static final int shootermotor = 6;
+        public static final double kS = 0.656;
+        public static final double kV = 0.00202;
+        public static final double kA = 0.000494;
+        public static final double kShootP = 0.006;
+        public static final double kShootI = 0.000;
+        public static final double kShootD = 0.000;
     }
         public static final double kTrackwidthMeters = 0.69;
         public static final DifferentialDriveKinematics kDriveKinematics =
