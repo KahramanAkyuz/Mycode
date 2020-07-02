@@ -6,8 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
-import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.HopperConstants;
 
@@ -15,8 +14,8 @@ public class HopperSubsytem extends SubsystemBase {
   /**
    * Creates a new HopperSubsytem.
    */
-  private final Talon hopperMotor_A = new Talon(HopperConstants.hopperMotor_A);
-  private final Talon hopperMotor_B = new Talon(HopperConstants.hopperMotor_B);
+  private final VictorSP hopperMotor_A = new VictorSP(HopperConstants.hopperMotor_A);
+  private final VictorSP hopperMotor_B = new VictorSP(HopperConstants.hopperMotor_B);
   public HopperSubsytem() {
 
   }
