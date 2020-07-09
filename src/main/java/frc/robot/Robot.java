@@ -112,7 +112,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     System.out.println(yaw.getDouble(0.0));
-    isDriveMode.setBoolean(joystick.getRawButton(0));
   }
 
   @Override
