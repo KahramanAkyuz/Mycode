@@ -7,6 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -20,7 +23,9 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
- 
+  public Joystick joystick;
+  public NetworkTableEntry yaw;
+  public NetworkTableEntry isDriveMode;
   private RobotContainer m_robotContainer;
   private SendableChooser<Integer> m_autonomusChooser;
 
@@ -36,6 +41,10 @@ public class Robot extends TimedRobot {
     m_autonomusChooser = new SendableChooser<Integer>();
     m_autonomusChooser.setDefaultOption("ilk kapaklı", 0);
     m_autonomusChooser.addOption("ikinci intake indirmeli", 1);
+    joystick = new Joystick(1);
+    NetworkTableInstance table = NetworkTableInstance.getDefault();
+    edu.wpi.first.networktables.NetworkTable cameratable = table.getTable("chamelon-vision").getSubTable("MYCameName");
+    yaw = cameratable.getEntry("driver_mode");
   }
 
   /**
@@ -102,6 +111,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    System.out.println(yaw.getDouble(0.0));
+    isDriveMode.setBoolean(joystick.getRawButton(0));
   }
 
   @Override

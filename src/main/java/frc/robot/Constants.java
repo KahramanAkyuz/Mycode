@@ -26,6 +26,11 @@ public final class Constants {
         public static final int OpenLimitSwitch = 8;
         public static final int CloseLimitSwitch = 9;
     }
+    public final class VisionLEDConstants{
+        public static final int kLEDRelayPort = 9;
+        public static final int kStatusLEDPort = 0;
+        public static final int kStatusLEDLength = 0;
+    }
     public final class HopperConstants{
         public static final int hopperMotor_A = 2;
         public static final int hopperMotor_B = 3;
