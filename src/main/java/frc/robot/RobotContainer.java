@@ -26,6 +26,7 @@ import frc.robot.subsystems.DriveSubsytem;
 import frc.robot.subsystems.HopperSubsytem;
 import frc.robot.subsystems.ShooterPiston;
 import frc.robot.subsystems.ShooterSubsytem;
+import frc.robot.subsystems.VisionLED;
 import frc.robot.subsystems.intakeSubsytem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RamseteCommand;
@@ -52,6 +53,7 @@ public class RobotContainer {
   private final ShooterSubsytem m_shooter = new ShooterSubsytem();
   private final ShooterPiston m_shooterPiston = new ShooterPiston();
   private final SneakyTrajectory s_trajectory = new SneakyTrajectory(m_drive);
+  private final VisionLED m_visionLed = new VisionLED();
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -82,6 +84,7 @@ public class RobotContainer {
     new POVButton(m_driverController, 90).whileHeld(new FieldOriantedTurnPID(m_drive, 90)) ;
     new POVButton(m_driverController, 270).whileHeld(new FieldOriantedTurnPID(m_drive, 270)) ;
     new POVButton(m_driverController, 360).whileHeld(new FieldOriantedTurnPID(m_drive, 360));
+    new JoystickButton(m_driverController, 12).whileHeld(new CloseLED(m_visionLed));
   }
   public Command trajectoryCommand(){
   var autoVoltageConstraint =
