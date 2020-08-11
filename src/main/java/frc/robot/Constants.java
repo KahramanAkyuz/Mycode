@@ -27,7 +27,7 @@ public final class Constants {
         public static final int CloseLimitSwitch = 9;
     }
     public final class VisionLEDConstants{
-        public static final int kLEDRelayPort = 9;
+        public static final int kLEDRelayPort = 1;
         public static final int kStatusLEDPort = 0;
         public static final int kStatusLEDLength = 0;
     }

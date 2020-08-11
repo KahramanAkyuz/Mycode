@@ -44,7 +44,7 @@ public class intakeSubsytem extends SubsystemBase {
     intakeOpenMotor.set(speed);
   }
   public void closeIntake(double speed){
-    intakeOpenMotor.set(speed);
+    intakeOpenMotor.set(-speed);
   }
   public void stopIntake2(){
     intakeOpenMotor.set(0);
